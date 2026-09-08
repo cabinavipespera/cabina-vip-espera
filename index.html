@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cabina VIP de Espera</title>
+
+    <meta name="description" content="Página web oficial de Cabina VIP de Espera">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8f6;
+            color: #26332c;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #315b45;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #315b45;
+        }
+
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #eef4ef, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            color: #315b45;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            font-weight: normal;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #315b45;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #244535;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #315b45;
+            margin-bottom: 20px;
+        }
+
+        .section-text {
+            max-width: 850px;
+            margin: 0 auto 45px;
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #315b45;
+            margin-bottom: 10px;
+        }
+
+        .plans {
+            background: #eef4ef;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #315b45;
+            margin: 15px 0;
+        }
+
+        .locations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .location {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            font-weight: bold;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #315b45;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #315b45;
+            color: white;
+            text-align: center;
+        }
+
+        .highlight h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .highlight p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        footer {
+            background: #1f2c24;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌿 CABINA VIP DE ESPERA</div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicio">Servicio</a>
+        <a href="#planes">Planes</a>
+        <a href="#ubicaciones">Ubicaciones</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="inicio">
+    <div class="hero-content">
+
+        <h1>Cabina VIP de Espera</h1>
+
+        <h2>Transformamos la espera en comodidad.</h2>
+
+        <p>
+            Un nuevo concepto de espera para estudiantes:
+            espacios cómodos, climatizados y conectados,
+            ubicados estratégicamente cerca de colegios y universidades.
+        </p>
+
+        <a href="#servicio" class="button">
+            Conoce nuestro servicio
+        </a>
+
+    </div>
+</section>
+
+
+<section id="servicio">
+
+    <h2 class="section-title">¿Qué es Cabina VIP de Espera?</h2>
+
+    <p class="section-text">
+        Es un espacio de espera moderno y transparente diseñado para
+        transformar el tiempo de espera del transporte en una experiencia
+        más cómoda, agradable y conectada.
+    </p>
+
+    <div class="features">
+
+        <div class="card">
+            <div class="icon">❄️</div>
+            <h3>Climatización</h3>
+            <p>
+                Un ambiente confortable para esperar sin importar
+                las condiciones del clima.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🪑</div>
+            <h3>Comodidad</h3>
+            <p>
+                Asientos y espacio adecuado para esperar cómodamente.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📶</div>
+            <h3>Wi-Fi</h3>
+            <p>
+                Conectividad para estudiar, trabajar o navegar mientras esperas.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔋</div>
+            <h3>Carga de celulares</h3>
+            <p>
+                Puertos USB y USB-C para mantener tus dispositivos cargados.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎫</div>
+            <h3>Acceso mediante QR</h3>
+            <p>
+                Ingresa fácilmente utilizando tu pase personal.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">☀️</div>
+            <h3>Energía solar</h3>
+            <p>
+                Paneles solares que contribuyen al funcionamiento
+                sostenible de la cabina.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="plans" id="planes">
+
+    <h2 class="section-title">Nuestros planes</h2>
+
+    <p class="section-text">
+        Elige la opción que mejor se adapte a tus necesidades.
+    </p>
+
+    <div class="features">
+
+        <div class="card">
+            <h3>Acceso individual</h3>
+            <div class="price">Bs 15</div>
+            <p>
+                Hasta 1 hora de acceso a la Cabina VIP de Espera.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Membresía semanal</h3>
+            <div class="price">Bs 80</div>
+            <p>
+                Hasta 60 minutos de uso diario durante una semana.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Membresía mensual</h3>
+            <div class="price">Bs 300</div>
+            <p>
+                Hasta 60 minutos de uso diario durante el mes.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <h2 class="section-title">¿Cómo funciona?</h2>
+
+    <p class="section-text">
+        Utilizar Cabina VIP de Espera es sencillo.
+    </p>
+
+    <div class="steps">
+
+        <div>
+            <div class="step-number">1</div>
+            <h3>Compra tu acceso</h3>
+            <p>
+                Elige un acceso individual o una membresía.
+            </p>
+        </div>
+
+        <div>
+            <div class="step-number">2</div>
+            <h3>Recibe tu pase</h3>
+            <p>
+                Obtén tu pase físico o digital con código QR.
+            </p>
+        </div>
+
+        <div>
+            <div class="step-number">3</div>
+            <h3>Escanea tu QR</h3>
+            <p>
+                Acerca tu pase al lector de acceso.
+            </p>
+        </div>
+
+        <div>
+            <div class="step-number">4</div>
+            <h3>Disfruta tu espera</h3>
+            <p>
+                Relájate, conéctate y espera cómodamente.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="ubicaciones" class="plans">
+
+    <h2 class="section-title">Nuestras ubicaciones</h2>
+
+    <p class="section-text">
+        Inicialmente proyectamos nuestras cabinas en zonas estratégicas
+        cercanas a colegios y universidades de Santa Cruz,
+        priorizando lugares con alta circulación estudiantil.
+    </p>
+
+    <div class="locations">
+
+        <div class="location">🎓 UTEPSA</div>
+
+        <div class="location">🎓 UDABOL</div>
+
+        <div class="location">🏫 Domingo Savio</div>
+
+        <div class="location">🏫 La Salle</div>
+
+        <div class="location">🏫 Saint George</div>
+
+    </div>
+
+    <p class="section-text" style="margin-top: 30px;">
+        Próximamente estaremos presentes en más puntos estratégicos
+        de la ciudad.
+    </p>
+
+</section>
+
+
+<section class="highlight">
+
+    <h2>Más que un lugar para esperar.</h2>
+
+    <p>
+        No cobramos por esperar; cobramos por mejorar
+        la experiencia de espera.
+    </p>
+
+</section>
+
+
+<footer>
+
+    <p><strong>🌿 CABINA VIP DE ESPERA</strong></p>
+
+    <p>Transformamos la espera en comodidad.</p>
+
+    <p>© 2026 Cabina VIP de Espera</p>
+
+</footer>
+
+</body>
+</html>
