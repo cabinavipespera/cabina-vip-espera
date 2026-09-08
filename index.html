@@ -3,317 +3,566 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cabina VIP de Espera: transformamos la espera en comodidad.">
+
   <title>Cabina VIP de Espera</title>
-  <link rel="stylesheet" href="style.css">
+
+  <meta name="description" content="Cabina VIP de Espera: transformamos la espera en comodidad.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #26332c;
+      background: #f7f8f5;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #315c45;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #34483b;
+      margin-left: 22px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #789b67;
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 7%;
+      background: linear-gradient(135deg, #eaf1e7, #ffffff);
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      color: #315c45;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-size: 27px;
+      font-weight: normal;
+      color: #607465;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 720px;
+      margin: auto;
+      color: #4d5b52;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: #315c45;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #244635;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #315c45;
+      font-size: 34px;
+      margin-bottom: 18px;
+    }
+
+    .section-text {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 45px;
+      color: #5b665f;
+      font-size: 17px;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 22px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .feature {
+      background: #f4f7f2;
+      padding: 28px 20px;
+      text-align: center;
+      border-radius: 16px;
+      border: 1px solid #e1e8df;
+    }
+
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      color: #315c45;
+      margin-bottom: 8px;
+    }
+
+    .plans {
+      background: #edf3e9;
+    }
+
+    .plans-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .plan {
+      background: white;
+      border-radius: 18px;
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    }
+
+    .plan h3 {
+      color: #315c45;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 36px;
+      font-weight: bold;
+      color: #315c45;
+      margin: 15px 0;
+    }
+
+    .plan p {
+      color: #667169;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .step {
+      text-align: center;
+      padding: 25px;
+    }
+
+    .number {
+      width: 55px;
+      height: 55px;
+      margin: auto auto 15px;
+      border-radius: 50%;
+      background: #315c45;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .location {
+      background: white;
+      text-align: center;
+    }
+
+    .location-box {
+      max-width: 800px;
+      margin: auto;
+      padding: 35px;
+      border-radius: 18px;
+      background: #f4f7f2;
+      border: 1px solid #dfe7dc;
+    }
+
+    .location-box h3 {
+      color: #315c45;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .highlight {
+      background: #315c45;
+      color: white;
+      text-align: center;
+      padding: 70px 7%;
+    }
+
+    .highlight h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .highlight p {
+      font-size: 19px;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .faq {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      margin-bottom: 12px;
+      padding: 18px 20px;
+      border-radius: 10px;
+      border: 1px solid #e1e5df;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #315c45;
+    }
+
+    footer {
+      background: #24372c;
+      color: white;
+      text-align: center;
+      padding: 30px 7%;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="#inicio">
-        <span class="brand-mark">🍃</span>
-        <span>
-          <strong>CABINA VIP</strong>
-          <small>DE ESPERA</small>
-        </span>
-      </a>
+  <header>
+    <div class="logo">🌿 CABINA VIP DE ESPERA</div>
 
-      <nav>
-        <a href="#que-es">¿Qué es?</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#planes">Planes</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#ubicacion">Ubicación</a>
-      </nav>
-
-      <a class="btn btn-small" href="#planes">Ver planes</a>
-    </div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicio">Servicio</a>
+      <a href="#planes">Planes</a>
+      <a href="#funciona">Cómo funciona</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
   </header>
 
   <main>
-    <section id="inicio" class="hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="hero-text">
-          <p class="eyebrow">UNA NUEVA FORMA DE ESPERAR</p>
-          <h1>Transformamos la espera en <span>comodidad.</span></h1>
-          <p class="hero-description">
-            Espacios transparentes, climatizados y conectados para que esperar tu transporte
-            sea una experiencia mucho más cómoda.
-          </p>
-          <div class="hero-buttons">
-            <a class="btn" href="#planes">Conoce nuestros planes</a>
-            <a class="btn btn-outline" href="#como-funciona">¿Cómo funciona?</a>
-          </div>
-          <div class="hero-tags">
-            <span>❄️ Climatizado</span>
-            <span>📶 Wi-Fi</span>
-            <span>🔌 Carga tu celular</span>
-            <span>💺 Asientos</span>
-          </div>
-        </div>
 
-        <div class="hero-card">
-          <div class="hero-card-top">CABINA VIP DE ESPERA</div>
-          <div class="hero-card-icon">🍃</div>
-          <p>Tu tiempo de espera, ahora diferente.</p>
-          <strong>Hasta 20 personas</strong>
-        </div>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+
+        <h1>Cabina VIP de Espera</h1>
+
+        <h2>Transformamos la espera en comodidad.</h2>
+
+        <p>
+          Un nuevo concepto de espera urbana pensado para estudiantes,
+          con espacios climatizados, cómodos y conectados mientras esperan
+          su transporte.
+        </p>
+
+        <a href="#planes" class="button">Conoce nuestros planes</a>
+
       </div>
     </section>
 
-    <section id="que-es" class="section">
-      <div class="container two-columns">
-        <div>
-          <p class="eyebrow">NUESTRA PROPUESTA</p>
-          <h2>¿Qué es Cabina VIP de Espera?</h2>
+
+    <section class="about" id="servicio">
+
+      <h2 class="section-title">¿Qué es Cabina VIP de Espera?</h2>
+
+      <p class="section-text">
+        Es un espacio de espera cerrado, transparente y climatizado,
+        ubicado estratégicamente cerca de instituciones educativas y
+        puntos de alta circulación.
+        Permite esperar el transporte de una manera más cómoda,
+        conectada y práctica.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">❄️</div>
+          <h3>Climatización</h3>
+          <p>Un ambiente más confortable frente al calor, la lluvia y la humedad.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">💺</div>
+          <h3>Comodidad</h3>
+          <p>Asientos y espacio adecuado para esperar cómodamente.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">📶</div>
+          <h3>Wi-Fi</h3>
+          <p>Conectividad mientras esperas tu transporte.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🔋</div>
+          <h3>Carga</h3>
+          <p>Puntos de carga USB y USB-C para tus dispositivos.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">☀️</div>
+          <h3>Energía solar</h3>
+          <p>Paneles solares como apoyo al consumo energético de la cabina.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <h3>Acceso QR</h3>
+          <p>Ingreso mediante pase personal con código QR.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="plans" id="planes">
+
+      <h2 class="section-title">Nuestros planes</h2>
+
+      <p class="section-text">
+        Elige la alternativa que mejor se adapte a tu rutina.
+      </p>
+
+      <div class="plans-container">
+
+        <div class="plan">
+          <h3>Acceso por hora</h3>
+          <div class="price">Bs 15</div>
+          <p>Hasta 1 hora de acceso a la cabina.</p>
+        </div>
+
+        <div class="plan">
+          <h3>Membresía semanal</h3>
+          <div class="price">Bs 80</div>
+          <p>Hasta 60 minutos diarios durante una semana.</p>
+        </div>
+
+        <div class="plan">
+          <h3>Membresía mensual</h3>
+          <div class="price">Bs 300</div>
+          <p>Hasta 60 minutos diarios durante un mes.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="funciona">
+
+      <h2 class="section-title">¿Cómo funciona?</h2>
+
+      <p class="section-text">
+        Utilizar Cabina VIP de Espera es sencillo.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="number">1</div>
+          <h3>Compra</h3>
+          <p>Elige tu acceso o membresía.</p>
+        </div>
+
+        <div class="step">
+          <div class="number">2</div>
+          <h3>Recibe tu pase</h3>
+          <p>Obtén tu tarjeta física o código digital.</p>
+        </div>
+
+        <div class="step">
+          <div class="number">3</div>
+          <h3>Escanea</h3>
+          <p>Presenta tu código QR en el lector de acceso.</p>
+        </div>
+
+        <div class="step">
+          <div class="number">4</div>
+          <h3>Disfruta</h3>
+          <p>Espera cómodamente hasta la llegada de tu transporte.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="location" id="ubicacion">
+
+      <h2 class="section-title">Ubicaciones estratégicas</h2>
+
+      <p class="section-text">
+        Las cabinas serán instaladas en puntos seleccionados de alta
+        circulación estudiantil y necesidad de espera.
+      </p>
+
+      <div class="location-box">
+
+        <h3>📍 Próximamente</h3>
+
+        <p>
+          Nuestra primera implementación piloto está proyectada
+          estratégicamente cerca de instituciones educativas,
+          considerando flujo de estudiantes, accesibilidad y
+          condiciones de espera.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="highlight">
+
+      <h2>No cobramos por esperar.</h2>
+
+      <p>
+        <strong>Cobramos por mejorar la experiencia de espera.</strong>
+        <br><br>
+        Convertimos un tiempo de espera incómodo en una experiencia
+        confortable y conectada.
+      </p>
+
+    </section>
+
+
+    <section>
+
+      <h2 class="section-title">Preguntas frecuentes</h2>
+
+      <div class="faq">
+
+        <details>
+          <summary>¿Cuántas personas pueden ingresar?</summary>
           <p>
-            Es un servicio de acceso temporal a cabinas urbanas transparentes y climatizadas,
-            ubicadas estratégicamente cerca de puntos de alta circulación estudiantil.
+            La capacidad inicial proyectada es de hasta 20 personas,
+            considerando comodidad, circulación y condiciones adecuadas
+            de uso.
           </p>
+        </details>
+
+        <details>
+          <summary>¿El acceso es libre?</summary>
           <p>
-            El usuario puede esperar su transporte en un espacio cómodo, conectado y con
-            servicios pensados para aprovechar mejor ese tiempo.
+            El acceso se realiza mediante un pase, ticket o membresía
+            válida.
           </p>
-          <div class="highlight">
-            <strong>“No cobramos por esperar; cobramos por mejorar la experiencia de espera.”</strong>
-          </div>
-        </div>
+        </details>
 
-        <div class="image-placeholder">
-          <img src="images/cabina.jpg" alt="Cabina VIP de Espera">
-          <div class="placeholder-text">
-            <span>Imagen de la cabina</span>
-            <small>Sube aquí tu foto oficial como <b>cabina.jpg</b></small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="beneficios" class="section section-light">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">TODO EN UN SOLO LUGAR</p>
-          <h2>Una espera más cómoda y conectada</h2>
-          <p>Diseñada pensando especialmente en estudiantes y usuarios frecuentes del transporte.</p>
-        </div>
-
-        <div class="features">
-          <article class="feature">
-            <div class="feature-icon">❄️</div>
-            <h3>Climatización</h3>
-            <p>Un espacio acondicionado para hacer más agradable la espera.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon">📶</div>
-            <h3>Wi-Fi</h3>
-            <p>Conectividad para estudiar, trabajar, comunicarse o entretenerse.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon">🔌</div>
-            <h3>Carga de celular</h3>
-            <p>Puertos USB y USB-C para mantener tus dispositivos con batería.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon">💺</div>
-            <h3>Asientos cómodos</h3>
-            <p>Un lugar adecuado para sentarte mientras llega tu transporte.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon">👀</div>
-            <h3>Visibilidad</h3>
-            <p>Paneles transparentes para identificar tu transporte cuando se aproxima.</p>
-          </article>
-          <article class="feature">
-            <div class="feature-icon">☀️</div>
-            <h3>Energía solar</h3>
-            <p>Paneles solares que ayudan al funcionamiento energético de la cabina.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="planes" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">ELIGE TU FORMA DE ACCESO</p>
-          <h2>Planes y precios</h2>
-          <p>Precios iniciales del proyecto, sujetos a validación mediante investigación de mercado.</p>
-        </div>
-
-        <div class="plans">
-          <article class="plan">
-            <p class="plan-label">OCASIONAL</p>
-            <h3>Acceso por hora</h3>
-            <div class="price">Bs 15 <span>/ hasta 1 hora</span></div>
-            <ul>
-              <li>Acceso a la cabina</li>
-              <li>Climatización</li>
-              <li>Wi-Fi</li>
-              <li>Carga USB / USB-C</li>
-            </ul>
-            <a class="btn btn-dark" href="#contacto">Solicitar acceso</a>
-          </article>
-
-          <article class="plan featured">
-            <div class="popular">MÁS CONVENIENTE</div>
-            <p class="plan-label">SEMANAL</p>
-            <h3>Membresía semanal</h3>
-            <div class="price">Bs 80 <span>/ semana</span></div>
-            <ul>
-              <li>Hasta 60 min. diarios</li>
-              <li>Acceso mediante QR</li>
-              <li>Servicios incluidos</li>
-              <li>Membresía personal</li>
-            </ul>
-            <a class="btn" href="#contacto">Quiero mi membresía</a>
-          </article>
-
-          <article class="plan">
-            <p class="plan-label">MENSUAL</p>
-            <h3>Membresía mensual</h3>
-            <div class="price">Bs 300 <span>/ mes</span></div>
-            <ul>
-              <li>Hasta 60 min. diarios</li>
-              <li>Acceso a diferentes cabinas</li>
-              <li>Servicios incluidos</li>
-              <li>Membresía personal</li>
-            </ul>
-            <a class="btn btn-dark" href="#contacto">Quiero mi membresía</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="como-funciona" class="section section-dark">
-      <div class="container">
-        <div class="section-heading light">
-          <p class="eyebrow">FÁCIL, RÁPIDO Y PRÁCTICO</p>
-          <h2>¿Cómo funciona?</h2>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <span>01</span>
-            <div>
-              <h3>Compra tu acceso</h3>
-              <p>Elige un acceso por hora o una membresía semanal/mensual.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span>02</span>
-            <div>
-              <h3>Recibe tu pase</h3>
-              <p>Obtén tu pase físico o digital con un código QR personal.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span>03</span>
-            <div>
-              <h3>Escanea y entra</h3>
-              <p>Acerca tu QR al lector para validar tu acceso.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span>04</span>
-            <div>
-              <h3>Disfruta tu espera</h3>
-              <p>Siéntate, conéctate, carga tu celular y espera cómodamente.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="image-placeholder dark-placeholder">
-          <img src="images/acceso-qr.jpg" alt="Ingreso a la cabina mediante código QR">
-          <div class="placeholder-text">
-            <span>Imagen del acceso QR</span>
-            <small>Sube aquí tu imagen como <b>acceso-qr.jpg</b></small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="ubicacion" class="section">
-      <div class="container two-columns">
-        <div class="image-placeholder">
-          <img src="images/cabina-utep-sa.jpg" alt="Simulación de Cabina VIP de Espera en UTEPSA">
-          <div class="placeholder-text">
-            <span>Simulación de ubicación</span>
-            <small>Sube aquí la imagen como <b>cabina-utep-sa.jpg</b></small>
-          </div>
-        </div>
-
-        <div>
-          <p class="eyebrow">PRIMERA ETAPA</p>
-          <h2>Ubicaciones estratégicas</h2>
+        <details>
+          <summary>¿Puedo utilizar diferentes cabinas?</summary>
           <p>
-            La propuesta inicial contempla puntos cercanos a universidades y colegios
-            seleccionados de Santa Cruz, considerando flujo de estudiantes, demanda de espera,
-            accesibilidad y disposición a pagar.
+            Las membresías están pensadas para permitir el acceso a
+            diferentes módulos de la red, sujeto a disponibilidad.
           </p>
+        </details>
 
-          <div class="location-list">
-            <div>📍 UTEPSA</div>
-            <div>📍 Colegios y universidades seleccionados</div>
-            <div>📍 Puntos de alta circulación y espera</div>
-          </div>
-
-          <p class="note">
-            <strong>Importante:</strong> las ubicaciones definitivas dependerán de permisos,
-            acuerdos con instituciones o propietarios y validación de la demanda.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <div class="container two-columns">
-        <div>
-          <p class="eyebrow">MEMBRESÍA</p>
-          <h2>Tu pase para una espera diferente</h2>
+        <details>
+          <summary>¿Por qué la cabina es transparente?</summary>
           <p>
-            Las membresías podrán estar vinculadas a un usuario y validadas mediante QR.
-            También se contempla un pase físico de bajo costo para facilitar el acceso.
+            Para que el usuario pueda observar el exterior, identificar
+            su transporte y salir oportunamente cuando este se aproxime.
           </p>
-          <div class="highlight">
-            <strong>Una membresía, diferentes módulos.</strong>
-            <span>Accede a las cabinas disponibles según las condiciones de tu plan.</span>
-          </div>
-        </div>
+        </details>
 
-        <div class="image-placeholder">
-          <img src="images/pase-membresia.jpg" alt="Pase de membresía Cabina VIP de Espera">
-          <div class="placeholder-text">
-            <span>Pase de membresía</span>
-            <small>Sube aquí tu diseño como <b>pase-membresia.jpg</b></small>
-          </div>
-        </div>
       </div>
+
     </section>
 
-    <section id="contacto" class="cta">
-      <div class="container cta-content">
-        <div>
-          <p class="eyebrow">CABINA VIP DE ESPERA</p>
-          <h2>Tu espera puede ser diferente.</h2>
-          <p>Conoce la propuesta y sé parte de una nueva experiencia de espera urbana.</p>
-        </div>
-        <a class="btn btn-white" href="mailto:contacto@cabinavipdeespera.com">Contáctanos</a>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-content">
-      <div>
-        <strong>CABINA VIP DE ESPERA</strong>
-        <p>Transformamos la espera en comodidad.</p>
-      </div>
-      <p>Proyecto académico de emprendimiento · Santa Cruz, Bolivia</p>
-    </div>
+
+  <footer>
+
+    <p><strong>CABINA VIP DE ESPERA</strong></p>
+
+    <p>Transformamos la espera en comodidad.</p>
+
+    <p>Proyecto académico de emprendimiento e innovación.</p>
+
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
