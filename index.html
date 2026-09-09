@@ -4,11 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cabina VIP de Espera</title>
+    <meta name="description" content="Cabina VIP de Espera: transformamos la espera en comodidad.">
 
-    <meta name="description" content="Cabina VIP de Espera: transformamos la espera en comodidad. Un espacio climatizado, conectado y confortable para esperar tu transporte.">
+    <title>Cabina VIP de Espera | Transformamos la espera en comodidad</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+
+        /* ==============================
+           VARIABLES
+        ============================== */
+
+        :root {
+            --verde: #355c4a;
+            --verde-claro: #6f9b82;
+            --verde-suave: #edf4ef;
+
+            --oscuro: #17231e;
+            --gris: #5f6863;
+            --gris-claro: #f5f7f6;
+
+            --blanco: #ffffff;
+
+            --dorado: #c9a66b;
+            --dorado-claro: #ead8b4;
+
+            --borde: #e3e9e5;
+
+            --sombra: 0 15px 40px rgba(23, 35, 30, 0.10);
+            --sombra-fuerte: 0 25px 60px rgba(23, 35, 30, 0.16);
+
+            --radio: 22px;
+        }
+
+
+        /* ==============================
+           RESET
+        ============================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -20,283 +57,414 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #1d2b27;
-            background: #f7faf8;
+            font-family: "Inter", sans-serif;
+            color: var(--oscuro);
+            background: var(--blanco);
             line-height: 1.6;
         }
 
-        :root {
-            --verde: #164d42;
-            --verde-claro: #2f806d;
-            --verde-suave: #e6f1ed;
-            --dorado: #c9a75b;
-            --crema: #faf8f2;
-            --blanco: #ffffff;
-            --gris: #68736f;
-            --oscuro: #14211e;
-            --sombra: 0 15px 40px rgba(20, 45, 39, 0.12);
+        img {
+            max-width: 100%;
+            display: block;
         }
 
-        /* =========================
-           NAVEGACIÓN
-        ========================== */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* ==============================
+           UTILIDADES
+        ============================== */
+
+        .container {
+            width: min(1180px, 92%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 95px 0;
+        }
+
+        .section-light {
+            background: var(--gris-claro);
+        }
+
+        .section-green {
+            background: var(--verde-suave);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--verde);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.12;
+            margin-bottom: 18px;
+            letter-spacing: -0.04em;
+        }
+
+        .section-text {
+            color: var(--gris);
+            max-width: 720px;
+            font-size: 1.03rem;
+        }
+
+
+        /* ==============================
+           BOTONES
+        ============================== */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            padding: 14px 22px;
+
+            border-radius: 999px;
+
+            font-weight: 700;
+            font-size: 0.95rem;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            color: white;
+            background: var(--verde);
+            box-shadow: 0 10px 25px rgba(53, 92, 74, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #294a3b;
+        }
+
+        .btn-light {
+            color: var(--verde);
+            background: white;
+        }
+
+        .btn-outline {
+            color: var(--verde);
+            border: 1px solid var(--verde);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--verde);
+            color: white;
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
 
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e6ebe8;
+
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(227,233,229,0.7);
         }
 
-        .nav-container {
-            max-width: 1180px;
-            margin: auto;
-            padding: 15px 25px;
+        .nav {
+            min-height: 78px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 30px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--verde);
+            gap: 11px;
+
             font-weight: 800;
-            font-size: 17px;
+            color: var(--oscuro);
+
+            line-height: 1.05;
         }
 
         .logo-icon {
             width: 42px;
             height: 42px;
-            border-radius: 50%;
-            background: var(--verde);
-            color: white;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+
+            border-radius: 50%;
+
+            color: white;
+            background: var(--verde);
+
+            font-size: 1.25rem;
         }
 
-        nav {
-            display: flex;
-            gap: 25px;
+        .logo-text span {
+            display: block;
         }
 
-        nav a {
-            text-decoration: none;
-            color: #34433e;
+        .logo-main {
+            font-size: 0.93rem;
+            letter-spacing: 0.02em;
+        }
+
+        .logo-sub {
+            color: var(--verde);
+            font-size: 0.69rem;
             font-weight: 600;
-            font-size: 14px;
-            transition: 0.3s;
+            margin-top: 2px;
         }
 
-        nav a:hover {
-            color: var(--verde-claro);
-        }
-
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-            min-height: 650px;
+        .nav-links {
             display: flex;
             align-items: center;
+            gap: 28px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #45504a;
+
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--verde);
+        }
+
+        .nav-button {
+            display: inline-flex;
+        }
+
+        .menu-button {
+            display: none;
+
+            border: none;
+            background: none;
+
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            min-height: 92vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 100px;
+
             background:
-                linear-gradient(120deg, rgba(11,48,41,.95), rgba(22,77,66,.82)),
+                linear-gradient(
+                    90deg,
+                    rgba(16, 28, 23, 0.92) 0%,
+                    rgba(16, 28, 23, 0.72) 42%,
+                    rgba(16, 28, 23, 0.20) 100%
+                ),
                 url("WhatsApp Image 2026-09-08 at 4.58.21 PM.jpeg");
+
             background-size: cover;
             background-position: center;
-            color: white;
         }
 
         .hero-content {
-            max-width: 1180px;
-            width: 100%;
-            margin: auto;
-            padding: 80px 25px;
+            max-width: 670px;
+            color: white;
         }
 
         .hero-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            border: 1px solid rgba(255,255,255,.4);
-            border-radius: 30px;
-            margin-bottom: 20px;
-            font-size: 13px;
-            letter-spacing: .5px;
-            background: rgba(255,255,255,.08);
-        }
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
 
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 78px);
-            line-height: 1;
-            max-width: 750px;
+            padding: 8px 14px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 999px;
+
+            background: rgba(255,255,255,0.10);
+
+            font-size: 0.8rem;
+            font-weight: 700;
+
             margin-bottom: 22px;
         }
 
-        .hero h1 span {
-            color: #e4c878;
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.7rem);
+            line-height: 0.95;
+            letter-spacing: -0.06em;
+            margin-bottom: 24px;
         }
 
-        .hero p {
-            max-width: 650px;
-            font-size: 20px;
-            color: #edf6f2;
+        .hero h1 span {
+            color: var(--dorado-claro);
+        }
+
+        .hero-description {
+            max-width: 600px;
+
+            color: rgba(255,255,255,0.87);
+
+            font-size: clamp(1rem, 2vw, 1.18rem);
+
             margin-bottom: 32px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 15px;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            padding: 14px 23px;
-            border-radius: 10px;
-            font-weight: 700;
-            transition: .3s;
+        .hero-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+
+            margin-top: 35px;
+
+            color: rgba(255,255,255,0.9);
+
+            font-size: 0.86rem;
         }
 
-        .btn-primary {
-            background: var(--dorado);
-            color: #17231f;
+        .hero-info span {
+            display: flex;
+            align-items: center;
+            gap: 7px;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,.2);
-        }
 
-        .btn-light {
-            border: 1px solid rgba(255,255,255,.5);
-            color: white;
-            background: rgba(255,255,255,.08);
-        }
+        /* ==============================
+           INTRODUCCIÓN
+        ============================== */
 
-        .btn-light:hover {
-            background: white;
-            color: var(--verde);
-        }
-
-        /* =========================
-           SECCIONES
-        ========================== */
-
-        section {
-            padding: 90px 25px;
-        }
-
-        .container {
-            max-width: 1180px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            max-width: 720px;
-            margin: 0 auto 50px;
-        }
-
-        .section-title .small-title {
-            color: var(--verde-claro);
-            text-transform: uppercase;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .section-title h2 {
-            font-size: clamp(30px, 4vw, 46px);
-            line-height: 1.15;
-            color: var(--oscuro);
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: var(--gris);
-        }
-
-        /* =========================
-           QUÉ ES
-        ========================== */
-
-        .about {
-            background: var(--crema);
-        }
-
-        .about-grid {
+        .intro-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 65px;
             align-items: center;
         }
 
-        .about-text h3 {
-            font-size: 34px;
-            color: var(--verde);
-            margin-bottom: 18px;
+        .intro-image {
+            overflow: hidden;
+            border-radius: var(--radio);
+            box-shadow: var(--sombra-fuerte);
         }
 
-        .about-text p {
+        .intro-image img {
+            width: 100%;
+            min-height: 480px;
+            object-fit: cover;
+        }
+
+        .intro-content h2 {
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+        }
+
+        .intro-content p {
             color: var(--gris);
             margin-bottom: 18px;
         }
 
-        .highlight {
-            padding: 20px;
-            background: white;
+        .highlight-box {
+            margin-top: 28px;
+
+            padding: 22px;
+
             border-left: 4px solid var(--dorado);
-            border-radius: 10px;
-            box-shadow: var(--sombra);
-            font-weight: 700;
-            color: var(--verde);
+
+            background: var(--gris-claro);
+
+            border-radius: 0 16px 16px 0;
         }
 
-        .about-image {
-            border-radius: 22px;
-            overflow: hidden;
-            box-shadow: var(--sombra);
-            background: white;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 430px;
-            object-fit: cover;
+        .highlight-box strong {
             display: block;
+            color: var(--verde);
+            margin-bottom: 5px;
         }
 
-        /* =========================
+
+        /* ==============================
            CARACTERÍSTICAS
-        ========================== */
+        ============================== */
 
-        .features {
-            background: white;
+        .features-header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .feature-grid {
+        .features-header .section-text {
+            margin: 0 auto;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            gap: 20px;
         }
 
         .feature {
-            padding: 30px;
-            border: 1px solid #e5ebe8;
-            border-radius: 16px;
+            padding: 28px;
+
+            border: 1px solid var(--borde);
+            border-radius: var(--radio);
+
             background: white;
-            transition: .3s;
+
+            box-shadow: 0 5px 20px rgba(23,35,30,0.04);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .feature:hover {
@@ -307,644 +475,1051 @@
         .feature-icon {
             width: 52px;
             height: 52px;
-            border-radius: 14px;
-            background: var(--verde-suave);
+
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 25px;
+
+            border-radius: 15px;
+
+            background: var(--verde-suave);
+
+            font-size: 1.4rem;
+
             margin-bottom: 18px;
         }
 
         .feature h3 {
-            color: var(--verde);
+            font-size: 1.08rem;
             margin-bottom: 8px;
         }
 
         .feature p {
             color: var(--gris);
-            font-size: 14px;
+            font-size: 0.91rem;
         }
 
-        /* =========================
-           PLANES
-        ========================== */
 
-        .plans {
-            background: #f2f7f4;
-        }
+        /* ==============================
+           PROPUESTA DE VALOR
+        ============================== */
 
-        .plans-grid {
+        .value-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            align-items: stretch;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .plan {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: var(--sombra);
-            position: relative;
-            border: 1px solid #e2eae6;
+        .value-card {
+            padding: 38px;
+
+            border-radius: 28px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #355c4a,
+                    #1f392d
+                );
+
+            box-shadow: var(--sombra-fuerte);
         }
 
-        .plan.featured {
-            border: 2px solid var(--dorado);
-            transform: translateY(-10px);
+        .value-card .quote {
+            font-size: clamp(1.7rem, 4vw, 2.6rem);
+            line-height: 1.15;
+            font-weight: 700;
+            letter-spacing: -0.04em;
         }
 
-        .popular {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dorado);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 800;
-            white-space: nowrap;
+        .value-card small {
+            display: block;
+            margin-top: 22px;
+            color: rgba(255,255,255,0.7);
         }
 
-        .plan h3 {
-            color: var(--verde);
-            font-size: 22px;
-            margin-bottom: 10px;
+        .value-list {
+            display: grid;
+            gap: 18px;
         }
 
-        .price {
-            font-size: 42px;
-            color: var(--oscuro);
-            font-weight: 800;
-            margin: 15px 0 5px;
+        .value-item {
+            display: flex;
+            gap: 15px;
         }
 
-        .price span {
-            font-size: 15px;
+        .value-check {
+            flex-shrink: 0;
+
+            width: 28px;
+            height: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--verde);
+            color: white;
+
+            font-size: 0.8rem;
+        }
+
+        .value-item h3 {
+            margin-bottom: 3px;
+            font-size: 1rem;
+        }
+
+        .value-item p {
             color: var(--gris);
-            font-weight: normal;
+            font-size: 0.9rem;
         }
 
-        .plan-description {
-            color: var(--gris);
-            min-height: 55px;
-            margin-bottom: 20px;
-        }
 
-        .plan ul {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .plan li {
-            margin: 10px 0;
-            font-size: 14px;
-            color: #45534e;
-        }
-
-        .plan li::before {
-            content: "✓";
-            color: var(--verde-claro);
-            font-weight: bold;
-            margin-right: 9px;
-        }
-
-        .plan .btn {
-            width: 100%;
-            text-align: center;
-        }
-
-        .price-note {
-            max-width: 800px;
-            margin: 35px auto 0;
-            text-align: center;
-            font-size: 13px;
-            color: var(--gris);
-        }
-
-        /* =========================
+        /* ==============================
            CÓMO FUNCIONA
-        ========================== */
+        ============================== */
+
+        .steps-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .steps-header .section-text {
+            margin: auto;
+        }
 
         .steps {
-            background: white;
-        }
-
-        .steps-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
         .step {
+            position: relative;
+
+            padding: 30px 24px;
+
+            border-radius: var(--radio);
+
+            background: white;
+            border: 1px solid var(--borde);
+
             text-align: center;
-            padding: 20px;
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
-            margin: auto auto 20px;
-            border-radius: 50%;
-            background: var(--verde);
-            color: white;
+            width: 52px;
+            height: 52px;
+
+            margin: 0 auto 18px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+
+            border-radius: 50%;
+
+            background: var(--verde);
+            color: white;
+
             font-weight: 800;
+            font-size: 1.1rem;
         }
 
         .step h3 {
-            color: var(--verde);
             margin-bottom: 8px;
         }
 
         .step p {
             color: var(--gris);
-            font-size: 14px;
+            font-size: 0.88rem;
         }
 
-        /* =========================
-           INNOVACIÓN
-        ========================== */
 
-        .innovation {
-            background: var(--verde);
+        /* ==============================
+           PLANES
+        ============================== */
+
+        .plans-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .plans-header .section-text {
+            margin: auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .plan {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            padding: 32px;
+
+            border-radius: 24px;
+
+            background: white;
+            border: 1px solid var(--borde);
+
+            box-shadow: 0 5px 20px rgba(23,35,30,0.04);
+        }
+
+        .plan.featured {
+            border: 2px solid var(--verde);
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-fuerte);
+        }
+
+        .plan-label {
+            display: inline-block;
+
+            width: fit-content;
+
+            padding: 5px 10px;
+
+            border-radius: 999px;
+
+            background: var(--verde-suave);
+            color: var(--verde);
+
+            font-size: 0.72rem;
+            font-weight: 800;
+
+            margin-bottom: 18px;
+        }
+
+        .plan h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .plan-description {
+            color: var(--gris);
+            font-size: 0.86rem;
+            min-height: 45px;
+        }
+
+        .price {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+
+            margin: 20px 0;
+        }
+
+        .price strong {
+            font-size: 2.6rem;
+            line-height: 1;
+        }
+
+        .price span {
+            color: var(--gris);
+            font-size: 0.84rem;
+        }
+
+        .plan ul {
+            list-style: none;
+
+            display: grid;
+            gap: 12px;
+
+            margin: 10px 0 25px;
+        }
+
+        .plan li {
+            position: relative;
+
+            padding-left: 23px;
+
+            color: #4f5954;
+            font-size: 0.88rem;
+        }
+
+        .plan li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            color: var(--verde);
+            font-weight: 800;
+        }
+
+        .plan .btn {
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .price-note {
+            margin-top: 28px;
+
+            text-align: center;
+
+            color: var(--gris);
+            font-size: 0.8rem;
+        }
+
+
+        /* ==============================
+           TIQUETE
+        ============================== */
+
+        .ticket-section {
+            background: var(--oscuro);
             color: white;
         }
 
-        .innovation-grid {
+        .ticket-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 70px;
             align-items: center;
         }
 
-        .innovation h2 {
-            font-size: clamp(32px, 4vw, 48px);
-            margin-bottom: 20px;
+        .ticket-content p {
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 18px;
         }
 
-        .innovation p {
-            color: #dbeae5;
-            margin-bottom: 20px;
+        .ticket-content .section-title {
+            color: white;
         }
 
-        .innovation-list {
-            list-style: none;
+        .ticket-features {
+            display: grid;
+            gap: 13px;
+            margin-top: 25px;
         }
 
-        .innovation-list li {
-            padding: 13px 0;
-            border-bottom: 1px solid rgba(255,255,255,.15);
+        .ticket-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: rgba(255,255,255,0.88);
+
+            font-size: 0.92rem;
         }
 
-        .innovation-list li::before {
-            content: "✦";
-            color: #e4c878;
-            margin-right: 10px;
+        .ticket-feature span {
+            width: 25px;
+            height: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.12);
+            color: var(--dorado-claro);
+
+            font-size: 0.75rem;
         }
 
-        .quote-box {
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,.2);
-            background: rgba(255,255,255,.06);
-            border-radius: 20px;
+        .ticket-image {
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: var(--sombra-fuerte);
         }
 
-        .quote-box strong {
-            display: block;
-            font-size: 28px;
-            line-height: 1.25;
-            color: #fff;
+        .ticket-image img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
         }
 
-        /* =========================
+
+        /* ==============================
            UBICACIÓN
-        ========================== */
-
-        .location {
-            background: var(--crema);
-        }
+        ============================== */
 
         .location-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 45px;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 55px;
             align-items: center;
         }
 
-        .location-image {
+        .location-images {
+            display: grid;
+            gap: 18px;
+        }
+
+        .location-images img {
+            width: 100%;
+            height: 255px;
+            object-fit: cover;
             border-radius: 20px;
-            overflow: hidden;
             box-shadow: var(--sombra);
         }
 
-        .location-image img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .location-content h2 {
-            color: var(--verde);
-            font-size: 38px;
-            margin-bottom: 18px;
-        }
-
-        .location-content p {
-            color: var(--gris);
-            margin-bottom: 18px;
+        .location-images img:first-child {
+            height: 310px;
         }
 
         .location-tag {
             display: inline-block;
+
+            padding: 7px 12px;
+
+            border-radius: 999px;
+
             background: var(--verde-suave);
             color: var(--verde);
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
+
+            font-size: 0.73rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+
             margin-bottom: 15px;
         }
 
-        /* =========================
-           PÚBLICO
-        ========================== */
+        .location-content h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
 
-        .audience {
-            background: white;
+            margin-bottom: 20px;
         }
 
-        .audience-box {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .audience-card {
-            padding: 30px;
-            border-radius: 18px;
-            background: #f5f8f6;
-            text-align: center;
-        }
-
-        .audience-card .emoji {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .audience-card h3 {
-            color: var(--verde);
-            margin-bottom: 10px;
-        }
-
-        .audience-card p {
-            font-size: 14px;
+        .location-content p {
             color: var(--gris);
+            margin-bottom: 16px;
         }
 
-        /* =========================
-           GALERÍA
-        ========================== */
+        .location-note {
+            padding: 18px;
 
-        .gallery {
-            background: #f2f7f4;
+            border-radius: 16px;
+
+            background: var(--gris-claro);
+
+            margin: 25px 0;
         }
 
-        .gallery-grid {
+        .location-note strong {
+            color: var(--verde);
+        }
+
+
+        /* ==============================
+           INNOVACIÓN
+        ============================== */
+
+        .innovation-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .innovation-image {
+            overflow: hidden;
+            border-radius: var(--radio);
+            box-shadow: var(--sombra-fuerte);
+        }
+
+        .innovation-image img {
+            width: 100%;
+            min-height: 480px;
+            object-fit: cover;
+        }
+
+        .innovation-list {
+            display: grid;
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .innovation-item {
+            display: flex;
             gap: 15px;
         }
 
-        .gallery-item {
-            height: 230px;
-            border-radius: 15px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 8px 25px rgba(0,0,0,.08);
+        .innovation-icon {
+            flex-shrink: 0;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: var(--verde-suave);
+            color: var(--verde);
+
+            font-weight: 800;
         }
 
-        .gallery-item:first-child {
-            grid-column: span 2;
-            grid-row: span 2;
-            height: 475px;
+        .innovation-item h3 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .innovation-item p {
+            color: var(--gris);
+            font-size: 0.88rem;
+        }
+
+
+        /* ==============================
+           GALERÍA
+        ============================== */
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .gallery-header .section-text {
+            margin: auto;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 18px;
+            background: #ddd;
+            min-height: 240px;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
+            min-height: 240px;
             object-fit: cover;
-            display: block;
-            transition: .4s;
+
+            transition: transform 0.4s ease;
         }
 
         .gallery-item:hover img {
             transform: scale(1.04);
         }
 
-        /* =========================
-           FAQ
-        ========================== */
-
-        .faq {
-            background: white;
+        .gallery-item.large {
+            grid-column: span 2;
         }
+
+
+        /* ==============================
+           FAQ
+        ============================== */
 
         .faq-container {
             max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .faq-header .section-text {
             margin: auto;
         }
 
-        details {
-            border-bottom: 1px solid #e2e8e5;
-            padding: 20px 0;
+        .faq-item {
+            border-bottom: 1px solid var(--borde);
         }
 
-        summary {
-            cursor: pointer;
+        .faq-question {
+            width: 100%;
+
+            padding: 21px 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            border: none;
+            background: transparent;
+
+            text-align: left;
+
+            color: var(--oscuro);
+
+            font-size: 1rem;
             font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .faq-question span {
+            font-size: 1.3rem;
             color: var(--verde);
-            font-size: 17px;
+
+            transition: transform 0.25s ease;
         }
 
-        details p {
-            margin-top: 12px;
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 0 20px;
+
             color: var(--gris);
-            font-size: 15px;
+            font-size: 0.92rem;
         }
 
-        /* =========================
-           CONTACTO / CTA
-        ========================== */
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+
+        /* ==============================
+           CTA
+        ============================== */
 
         .cta {
+            padding: 80px 0;
+
             background:
-                linear-gradient(120deg, rgba(11,48,41,.96), rgba(22,77,66,.92));
+                linear-gradient(
+                    135deg,
+                    var(--verde),
+                    #213c30
+                );
+
             color: white;
-            text-align: center;
+        }
+
+        .cta-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cta .eyebrow {
+            color: var(--dorado-claro);
         }
 
         .cta h2 {
-            font-size: clamp(32px, 5vw, 52px);
-            margin-bottom: 15px;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
         }
 
         .cta p {
-            max-width: 650px;
-            margin: 0 auto 28px;
-            color: #dceae5;
+            color: rgba(255,255,255,0.75);
         }
 
-        /* =========================
+
+        /* ==============================
            FOOTER
-        ========================== */
+        ============================== */
 
         footer {
-            background: #101b18;
-            color: #b8c8c2;
-            padding: 35px 25px;
+            background: #101914;
+            color: white;
+            padding: 45px 0;
         }
 
-        .footer-container {
-            max-width: 1180px;
-            margin: auto;
+        .footer-content {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
+            gap: 30px;
         }
 
         .footer-brand {
-            color: white;
-            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .footer-small {
-            font-size: 13px;
+        .footer-brand-icon {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--verde);
         }
 
-        /* =========================
+        .footer-brand strong {
+            font-size: 0.95rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.76rem;
+            margin-top: 2px;
+        }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.78rem;
+            text-align: right;
+        }
+
+
+        /* ==============================
            RESPONSIVE
-        ========================== */
+        ============================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
 
-            nav {
-                gap: 12px;
+            .nav-links {
+                gap: 17px;
             }
 
-            nav a {
-                font-size: 12px;
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .about-grid,
-            .innovation-grid,
-            .location-grid {
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .plans-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .feature-grid,
-            .plans-grid,
-            .audience-box {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .steps-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 650px) {
-
-            .nav-container {
-                flex-direction: column;
-                padding: 12px 15px;
-            }
-
-            nav {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .hero {
-                min-height: 600px;
-            }
-
-            .hero-content {
-                padding: 70px 20px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            section {
-                padding: 65px 20px;
-            }
-
-            .feature-grid,
-            .plans-grid,
-            .audience-box,
-            .steps-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
+                max-width: 520px;
+                margin: 0 auto;
             }
 
             .plan.featured {
                 transform: none;
             }
 
-            .gallery-item:first-child {
-                grid-column: auto;
-                grid-row: auto;
-                height: 280px;
-            }
-
-            .gallery-item {
-                height: 280px;
-            }
-
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .about-image img,
-            .location-image img {
-                height: 300px;
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
+
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+                top: 78px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 25px;
+
+                flex-direction: column;
+                align-items: flex-start;
+
+                background: white;
+
+                border-bottom: 1px solid var(--borde);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav-button {
+                display: none;
+            }
+
+            .intro-grid,
+            .value-grid,
+            .ticket-grid,
+            .location-grid,
+            .innovation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image {
+                order: -1;
+            }
+
+            .ticket-image {
+                order: -1;
+            }
+
+            .location-images {
+                order: -1;
+            }
+
+            .cta-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-copy {
+                text-align: left;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                min-height: 88vh;
+            }
+
+            .hero h1 {
+                font-size: 3.25rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .features-grid,
+            .steps,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.large {
+                grid-column: span 1;
+            }
+
+            .intro-image img {
+                min-height: 330px;
+            }
+
+            .innovation-image img {
+                min-height: 330px;
+            }
+
+            .ticket-image img {
+                height: 380px;
+            }
+
+            .location-images img,
+            .location-images img:first-child {
+                height: 260px;
+            }
+
+            .value-card {
+                padding: 28px;
+            }
+
+            .cta {
+                padding: 65px 0;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- =========================
-         NAVEGACIÓN
-    ========================== -->
+
+    <!-- ==============================
+         HEADER
+    ============================== -->
 
     <header>
-        <div class="nav-container">
+
+        <div class="container nav">
 
             <a href="#inicio" class="logo">
-                <div class="logo-icon">🍃</div>
-                <span>CABINA VIP DE ESPERA</span>
+
+                <div class="logo-icon">
+                    🍃
+                </div>
+
+                <div class="logo-text">
+
+                    <span class="logo-main">
+                        CABINA VIP DE ESPERA
+                    </span>
+
+                    <span class="logo-sub">
+                        Transformamos la espera en comodidad.
+                    </span>
+
+                </div>
+
             </a>
 
+
             <nav>
-                <a href="#inicio">Inicio</a>
-                <a href="#servicio">Servicio</a>
-                <a href="#planes">Planes</a>
-                <a href="#como-funciona">Cómo funciona</a>
-                <a href="#ubicacion">Ubicación</a>
+
+                <ul class="nav-links" id="navLinks">
+
+                    <li>
+                        <a href="#inicio">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#propuesta">
+                            La propuesta
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#caracteristicas">
+                            Características
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#planes">
+                            Planes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#ubicacion">
+                            Ubicación
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#faq">
+                            Preguntas
+                        </a>
+                    </li>
+
+                </ul>
+
             </nav>
 
+
+            <a href="#planes" class="btn btn-primary nav-button">
+                Ver planes
+            </a>
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Abrir menú"
+            >
+                ☰
+            </button>
+
         </div>
+
     </header>
 
 
-    <!-- =========================
-         INICIO
-    ========================== -->
 
     <main>
 
+
+        <!-- ==============================
+             HERO
+        ============================== -->
+
         <section class="hero" id="inicio">
 
-            <div class="hero-content">
-
-                <div class="hero-badge">
-                    Una nueva forma de esperar tu transporte
-                </div>
-
-                <h1>
-                    Cabina VIP<br>
-                    <span>de Espera</span>
-                </h1>
-
-                <p>
-                    Un espacio transparente, climatizado y conectado
-                    para transformar un momento incómodo en una
-                    experiencia cómoda.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#planes" class="btn btn-primary">
-                        Conoce nuestros planes
-                    </a>
-
-                    <a href="#servicio" class="btn btn-light">
-                        Conoce el servicio
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SERVICIO
-        ========================== -->
-
-        <section class="about" id="servicio">
-
             <div class="container">
 
-                <div class="about-grid">
+                <div class="hero-content">
 
-                    <div class="about-text">
-
-                        <div class="section-title" style="text-align:left; margin:0 0 25px 0;">
-                            <div class="small-title">
-                                Nuestra propuesta
-                            </div>
-
-                            <h2>
-                                Esperar también puede ser cómodo.
-                            </h2>
-                        </div>
-
-                        <p>
-                            Cabina VIP de Espera es un servicio de acceso
-                            temporal a espacios urbanos diseñados para
-                            esperar el transporte de una manera más cómoda.
-                        </p>
-
-                        <p>
-                            La cabina cuenta con climatización, asientos,
-                            Wi-Fi, puntos de carga y un diseño completamente
-                            transparente que permite observar el exterior
-                            y reconocer fácilmente el transporte que se
-                            aproxima.
-                        </p>
-
-                        <div class="highlight">
-                            “No cobramos por esperar; cobramos por mejorar
-                            la experiencia de espera.”
-                        </div>
-
+                    <div class="hero-badge">
+                        🍃 Nueva experiencia de espera urbana
                     </div>
 
-                    <div class="about-image">
 
-                        <img
-                            src="WhatsApp Image 2026-09-08 at 4.58.22 PM.jpeg"
-                            alt="Cabina VIP de Espera"
+                    <h1>
+                        Tu espera,
+                        <span>mejor.</span>
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Un espacio cómodo, climatizado y conectado
+                        para esperar tu transporte sin importar el
+                        calor, la lluvia o las condiciones del entorno.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#propuesta"
+                            class="btn btn-light"
                         >
+                            Conoce la propuesta
+                        </a>
+
+                        <a
+                            href="#planes"
+                            class="btn btn-outline"
+                            style="color:white;border-color:rgba(255,255,255,0.55);"
+                        >
+                            Ver precios
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-info">
+
+                        <span>
+                            ✓ Hasta 20 personas
+                        </span>
+
+                        <span>
+                            ✓ Wi-Fi
+                        </span>
+
+                        <span>
+                            ✓ Climatización
+                        </span>
+
+                        <span>
+                            ✓ Carga de dispositivos
+                        </span>
 
                     </div>
 
@@ -955,113 +1530,276 @@
         </section>
 
 
-        <!-- =========================
-             CARACTERÍSTICAS
-        ========================== -->
 
-        <section class="features">
+        <!-- ==============================
+             PROPUESTA
+        ============================== -->
 
-            <div class="container">
+        <section class="section" id="propuesta">
 
-                <div class="section-title">
+            <div class="container intro-grid">
 
-                    <div class="small-title">
-                        Todo en un solo espacio
-                    </div>
+
+                <div class="intro-image">
+
+                    <img
+                        src="WhatsApp Image 2026-09-08 at 4.58.22 PM.jpeg"
+                        alt="Cabina VIP de Espera transparente"
+                    >
+
+                </div>
+
+
+                <div class="intro-content">
+
+                    <span class="eyebrow">
+                        ¿Qué es?
+                    </span>
+
 
                     <h2>
-                        Diseñada para hacer mejor tu espera
+                        Una nueva forma
+                        de esperar.
                     </h2>
 
+
                     <p>
-                        La cabina integra diferentes servicios pensados
-                        para las necesidades de quienes esperan su transporte.
+                        Cabina VIP de Espera es una propuesta de servicio
+                        que transforma el tiempo de espera del transporte
+                        en una experiencia más cómoda, práctica y conectada.
+                    </p>
+
+
+                    <p>
+                        Consiste en cabinas transparentes y climatizadas,
+                        instaladas estratégicamente cerca de instituciones
+                        educativas y otros puntos de alta circulación.
+                    </p>
+
+
+                    <p>
+                        El usuario puede acceder durante un tiempo determinado
+                        mediante un <strong>ticket físico con código QR</strong>.
+                    </p>
+
+
+                    <div class="highlight-box">
+
+                        <strong>
+                            Nuestra idea central
+                        </strong>
+
+                        No cobramos por esperar;
+                        cobramos por mejorar la experiencia de espera.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             CARACTERÍSTICAS
+        ============================== -->
+
+        <section
+            class="section section-light"
+            id="caracteristicas"
+        >
+
+            <div class="container">
+
+                <div class="features-header">
+
+                    <span class="eyebrow">
+                        Dentro de la cabina
+                    </span>
+
+                    <h2 class="section-title">
+                        Todo pensado para
+                        una mejor espera.
+                    </h2>
+
+                    <p class="section-text">
+
+                        La propuesta combina comodidad, conectividad,
+                        información y facilidad de acceso en un solo espacio.
+
                     </p>
 
                 </div>
 
 
-                <div class="feature-grid">
+                <div class="features-grid">
+
 
                     <div class="feature">
-                        <div class="feature-icon">❄️</div>
-                        <h3>Climatización</h3>
+
+                        <div class="feature-icon">
+                            ❄️
+                        </div>
+
+                        <h3>
+                            Climatización
+                        </h3>
+
                         <p>
-                            Un ambiente confortable frente al calor,
-                            humedad o lluvia.
+                            Un espacio climatizado para esperar con mayor
+                            comodidad durante los días de calor, frío, lluvia
+                            o condiciones climáticas poco favorables.
                         </p>
+
                     </div>
 
-                    <div class="feature">
-                        <div class="feature-icon">🪑</div>
-                        <h3>Asientos cómodos</h3>
-                        <p>
-                            Espacio para sentarse mientras llega
-                            tu transporte.
-                        </p>
-                    </div>
 
                     <div class="feature">
-                        <div class="feature-icon">📶</div>
-                        <h3>Wi-Fi</h3>
+
+                        <div class="feature-icon">
+                            🪑
+                        </div>
+
+                        <h3>
+                            Asientos cómodos
+                        </h3>
+
                         <p>
-                            Conectividad para estudiar, trabajar,
-                            comunicarse o entretenerse.
+                            Espacio diseñado para que los usuarios puedan
+                            sentarse y esperar cómodamente.
                         </p>
+
                     </div>
 
-                    <div class="feature">
-                        <div class="feature-icon">🔋</div>
-                        <h3>Carga USB y USB-C</h3>
-                        <p>
-                            Puntos de carga para mantener tus dispositivos
-                            disponibles durante la espera.
-                        </p>
-                    </div>
 
                     <div class="feature">
-                        <div class="feature-icon">👀</div>
-                        <h3>Diseño transparente</h3>
+
+                        <div class="feature-icon">
+                            📶
+                        </div>
+
+                        <h3>
+                            Wi-Fi
+                        </h3>
+
                         <p>
-                            Permite observar el exterior y reconocer
-                            fácilmente el transporte que se aproxima.
+                            Conectividad para comunicarte y entretenerte 
+                            mientras esperas.
                         </p>
+
                     </div>
 
-                    <div class="feature">
-                        <div class="feature-icon">☀️</div>
-                        <h3>Energía solar</h3>
-                        <p>
-                            Paneles solares en la cubierta como apoyo
-                            al consumo energético de la cabina.
-                        </p>
-                    </div>
 
                     <div class="feature">
-                        <div class="feature-icon">🎫</div>
-                        <h3>Acceso mediante QR</h3>
+
+                        <div class="feature-icon">
+                            🔋
+                        </div>
+
+                        <h3>
+                            Carga de dispositivos
+                        </h3>
+
                         <p>
-                            El usuario utiliza un pase físico o digital
-                            asociado a su membresía.
+                            Puntos de carga USB y USB-C para mantener
+                            tus dispositivos conectados durante la espera.
                         </p>
+
                     </div>
 
-                    <div class="feature">
-                        <div class="feature-icon">🚌</div>
-                        <h3>Información de transporte</h3>
-                        <p>
-                            Espacio preparado para incorporar información
-                            útil sobre el transporte disponible.
-                        </p>
-                    </div>
 
                     <div class="feature">
-                        <div class="feature-icon">👥</div>
-                        <h3>Hasta 20 personas</h3>
+
+                        <div class="feature-icon">
+                            🚌
+                        </div>
+
+                        <h3>
+                            Información del transporte
+                        </h3>
+
                         <p>
-                            Capacidad máxima referencial pensada para
-                            mantener comodidad y circulación.
+                            Información visual que permitirá consultar
+                            datos relacionados con el transporte y la espera.
                         </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            🎫
+                        </div>
+
+                        <h3>
+                            Acceso mediante ticket
+                        </h3>
+
+                        <p>
+                            El usuario recibe un ticket físico con un
+                            código QR que debe escanear en el lector
+                            ubicado en la entrada para acceder a la cabina.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            ☀️
+                        </div>
+
+                        <h3>
+                            Energía solar
+                        </h3>
+
+                        <p>
+                            Paneles solares instalados en la cubierta
+                            como apoyo a la generación de energía del módulo.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            👁️
+                        </div>
+
+                        <h3>
+                            Diseño transparente
+                        </h3>
+
+                        <p>
+                            Los paneles transparentes permiten visualizar
+                            el exterior y reconocer fácilmente el transporte
+                            que se aproxima.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            📍
+                        </div>
+
+                        <h3>
+                            Ubicación estratégica
+                        </h3>
+
+                        <p>
+                            Instalación propuesta cerca de instituciones
+                            educativas y puntos donde existe una necesidad
+                            real de espera.
+                        </p>
+
                     </div>
 
                 </div>
@@ -1071,27 +1809,281 @@
         </section>
 
 
-        <!-- =========================
-             PLANES
-        ========================== -->
 
-        <section class="plans" id="planes">
+        <!-- ==============================
+             PROPUESTA DE VALOR
+        ============================== -->
+
+        <section class="section">
+
+            <div class="container value-grid">
+
+
+                <div class="value-card">
+
+                    <div class="quote">
+
+                        “Transformamos
+                        la espera en
+                        comodidad.”
+
+                    </div>
+
+                    <small>
+                        CABINA VIP DE ESPERA
+                    </small>
+
+                </div>
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        Nuestra propuesta de valor
+                    </span>
+
+                    <h2 class="section-title">
+                        No es solamente
+                        un lugar para sentarse.
+                    </h2>
+
+
+                    <div class="value-list">
+
+
+                        <div class="value-item">
+
+                            <div class="value-check">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Comodidad
+                                </h3>
+
+                                <p>
+                                    Convertimos una espera incómoda
+                                    en un momento de descanso.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="value-item">
+
+                            <div class="value-check">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Conectividad
+                                </h3>
+
+                                <p>
+                                    El usuario puede mantenerse conectado
+                                    mientras espera su transporte.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="value-item">
+
+                            <div class="value-check">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Flexibilidad
+                                </h3>
+
+                                <p>
+                                    Se puede utilizar mediante un ticket
+                                    individual o mediante planes de membresía.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="value-item">
+
+                            <div class="value-check">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Experiencia
+                                </h3>
+
+                                <p>
+                                    El servicio está diseñado alrededor
+                                    de las necesidades reales del usuario
+                                    durante el tiempo de espera.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             CÓMO FUNCIONA
+        ============================== -->
+
+        <section
+            class="section section-light"
+            id="funcionamiento"
+        >
 
             <div class="container">
 
-                <div class="section-title">
+                <div class="steps-header">
 
-                    <div class="small-title">
-                        Planes piloto
-                    </div>
+                    <span class="eyebrow">
+                        Fácil y práctico
+                    </span>
 
-                    <h2>
-                        Elige cómo quieres esperar
+                    <h2 class="section-title">
+                        ¿Cómo funciona?
                     </h2>
 
-                    <p>
-                        Diferentes alternativas para utilizar la cabina
-                        según tus necesidades.
+                    <p class="section-text">
+                        El proceso está pensado para que el usuario
+                        pueda ingresar rápidamente y aprovechar su tiempo.
+                    </p>
+
+                </div>
+
+
+                <div class="steps">
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <h3>
+                            Elige tu modalidad
+                        </h3>
+
+                        <p>
+                            Compra un ticket individual o adquiere
+                            una membresía semanal o mensual.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <h3>
+                            Recibe tu ticket
+                        </h3>
+
+                        <p>
+                            Recibe tu ticket físico con un código QR
+                            que te permitirá ingresar a la cabina.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <h3>
+                            Escanea
+                        </h3>
+
+                        <p>
+                            Acerca el código QR de tu ticket al lector
+                            ubicado en la entrada.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <h3>
+                            Disfruta tu espera
+                        </h3>
+
+                        <p>
+                            Ingresa, siéntate, conéctate y espera
+                            cómodamente tu transporte.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             PLANES Y PRECIOS
+        ============================== -->
+
+        <section
+            class="section"
+            id="planes"
+        >
+
+            <div class="container">
+
+                <div class="plans-header">
+
+                    <span class="eyebrow">
+                        Modalidades
+                    </span>
+
+                    <h2 class="section-title">
+                        Elige cómo quieres esperar.
+                    </h2>
+
+                    <p class="section-text">
+                        Diferentes alternativas para adaptarnos
+                        a la frecuencia de uso de cada usuario.
                     </p>
 
                 </div>
@@ -1099,100 +2091,195 @@
 
                 <div class="plans-grid">
 
-                    <!-- PLAN 1 -->
 
                     <div class="plan">
 
-                        <h3>Acceso por hora</h3>
+                        <span class="plan-label">
+                            POR USO
+                        </span>
 
-                        <div class="price">
-                            Bs 15
-                            <span>/ acceso</span>
-                        </div>
+                        <h3>
+                            Ticket individual
+                        </h3>
 
                         <p class="plan-description">
-                            Ideal para quienes necesitan comodidad
-                            ocasionalmente.
+                            Ideal para quienes necesitan utilizar
+                            la cabina ocasionalmente.
                         </p>
 
+
+                        <div class="price">
+
+                            <strong>
+                                Bs 15
+                            </strong>
+
+                            <span>
+                                / hasta 1 hora
+                            </span>
+
+                        </div>
+
+
                         <ul>
-                            <li>Hasta 1 hora de acceso</li>
-                            <li>Climatización</li>
-                            <li>Wi-Fi</li>
-                            <li>Asientos</li>
-                            <li>Carga USB / USB-C</li>
-                            <li>Acceso mediante QR</li>
+
+                            <li>
+                                Hasta 1 hora de acceso
+                            </li>
+
+                            <li>
+                                Tiquete físico con código QR
+                            </li>
+
+                            <li>
+                                Climatización
+                            </li>
+
+                            <li>
+                                Wi-Fi
+                            </li>
+
+                            <li>
+                                Carga de dispositivos
+                            </li>
+
                         </ul>
 
-                        <a href="#contacto" class="btn btn-primary">
-                            Elegir acceso
+
+                        <a
+                            href="#contacto"
+                            class="btn btn-outline"
+                        >
+                            Elegir tiquete
                         </a>
 
                     </div>
 
 
-                    <!-- PLAN 2 -->
 
                     <div class="plan featured">
 
-                        <div class="popular">
-                            MÁS CONVENIENTE
-                        </div>
+                        <span class="plan-label">
+                            SEMANAL
+                        </span>
 
-                        <h3>Membresía semanal</h3>
-
-                        <div class="price">
-                            Bs 80
-                            <span>/ semana</span>
-                        </div>
+                        <h3>
+                            Membresía semanal
+                        </h3>
 
                         <p class="plan-description">
-                            Pensada para quienes utilizan la cabina
-                            frecuentemente durante la semana.
+                            Para usuarios que utilizan regularmente
+                            el servicio durante la semana.
                         </p>
 
+
+                        <div class="price">
+
+                            <strong>
+                                Bs 80
+                            </strong>
+
+                            <span>
+                                / semana
+                            </span>
+
+                        </div>
+
+
                         <ul>
-                            <li>Hasta 60 min diarios</li>
-                            <li>Acceso durante 7 días</li>
-                            <li>Wi-Fi</li>
-                            <li>Climatización</li>
-                            <li>Carga de dispositivos</li>
-                            <li>Acceso mediante pase personal</li>
+
+                            <li>
+                                Hasta 60 minutos por día
+                            </li>
+
+                            <li>
+                                Ticket físico con código QR
+                            </li>
+
+                            <li>
+                                Acceso personal
+                            </li>
+
+                            <li>
+                                Climatización
+                            </li>
+
+                            <li>
+                                Wi-Fi y carga
+                            </li>
+
                         </ul>
 
-                        <a href="#contacto" class="btn btn-primary">
+
+                        <a
+                            href="#contacto"
+                            class="btn btn-primary"
+                        >
                             Elegir membresía
                         </a>
 
                     </div>
 
 
-                    <!-- PLAN 3 -->
 
                     <div class="plan">
 
-                        <h3>Membresía mensual</h3>
+                        <span class="plan-label">
+                            MENSUAL
+                        </span>
 
-                        <div class="price">
-                            Bs 300
-                            <span>/ mes</span>
-                        </div>
+                        <h3>
+                            Membresía mensual
+                        </h3>
 
                         <p class="plan-description">
-                            Para usuarios frecuentes que desean contar
-                            con el servicio durante todo el mes.
+                            La alternativa para usuarios frecuentes
+                            que buscan mayor flexibilidad.
                         </p>
 
+
+                        <div class="price">
+
+                            <strong>
+                                Bs 300
+                            </strong>
+
+                            <span>
+                                / mes
+                            </span>
+
+                        </div>
+
+
                         <ul>
-                            <li>Hasta 60 min diarios</li>
-                            <li>Acceso durante 30 días</li>
-                            <li>Wi-Fi</li>
-                            <li>Climatización</li>
-                            <li>Carga de dispositivos</li>
-                            <li>Acceso a diferentes módulos</li>
+
+                            <li>
+                                Hasta 60 minutos por día
+                            </li>
+
+                            <li>
+                                Tiquete físico asociado a la membresía
+                            </li>
+
+                            <li>
+                                Acceso personal
+                            </li>
+
+                            <li>
+                                Acceso a diferentes módulos
+                            </li>
+
+                            <li>
+                                Climatización, Wi-Fi y carga
+                            </li>
+
                         </ul>
 
-                        <a href="#contacto" class="btn btn-primary">
+
+                        <a
+                            href="#contacto"
+                            class="btn btn-outline"
+                        >
                             Elegir membresía
                         </a>
 
@@ -1202,10 +2289,8 @@
 
 
                 <p class="price-note">
-                    *Los precios son referenciales y corresponden a la
-                    propuesta piloto del proyecto. Están sujetos a
-                    validación mediante investigación de mercado,
-                    costos operativos y disposición de pago.
+                    * Precios planteados como propuesta inicial y sujetos
+                    a validación mediante estudio de mercado y prueba piloto.
                 </p>
 
             </div>
@@ -1213,162 +2298,169 @@
         </section>
 
 
-        <!-- =========================
-             CÓMO FUNCIONA
-        ========================== -->
 
-        <section class="steps" id="como-funciona">
+        <!-- ==============================
+             TICKET FÍSICO
+        ============================== -->
 
-            <div class="container">
+        <section class="section ticket-section">
 
-                <div class="section-title">
+            <div class="container ticket-grid">
 
-                    <div class="small-title">
-                        Fácil y rápido
-                    </div>
 
-                    <h2>
-                        ¿Cómo funciona?
+                <div class="ticket-content">
+
+                    <span class="eyebrow">
+                        Sistema de acceso
+                    </span>
+
+                    <h2 class="section-title">
+                        Tu ticket.
+                        Tu acceso.
                     </h2>
 
+
                     <p>
-                        Utilizar Cabina VIP de Espera es sencillo.
+                        El acceso a la cabina se realiza mediante un
+                        <strong>ticket físico con código QR</strong>.
                     </p>
 
-                </div>
+
+                    <p>
+                        El usuario acerca el código al lector ubicado
+                        en la entrada y, una vez validado, puede ingresar
+                        a disfrutar de la cabina.
+                    </p>
 
 
-                <div class="steps-grid">
-
-                    <div class="step">
-
-                        <div class="step-number">1</div>
-
-                        <h3>Elige tu plan</h3>
-
-                        <p>
-                            Selecciona un acceso por hora o una
-                            membresía semanal o mensual.
-                        </p>
-
-                    </div>
+                    <div class="ticket-features">
 
 
-                    <div class="step">
-
-                        <div class="step-number">2</div>
-
-                        <h3>Recibe tu pase</h3>
-
-                        <p>
-                            Obtén un pase físico o digital con
-                            un código QR personal.
-                        </p>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">3</div>
-
-                        <h3>Escanea</h3>
-
-                        <p>
-                            Acerca tu código QR al lector ubicado
-                            en la entrada.
-                        </p>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">4</div>
-
-                        <h3>Disfruta</h3>
-
-                        <p>
-                            Ingresa y disfruta de una espera
-                            más cómoda y conectada.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             INNOVACIÓN
-        ========================== -->
-
-        <section class="innovation">
-
-            <div class="container">
-
-                <div class="innovation-grid">
-
-                    <div>
-
-                        <div class="small-title" style="color:#e4c878;">
-                            Nuestra innovación
+                        <div class="ticket-feature">
+                            <span>✓</span>
+                            Código QR impreso en el ticket
                         </div>
 
-                        <h2>
-                            Convertimos la espera en una experiencia.
-                        </h2>
 
-                        <p>
-                            La innovación de Cabina VIP de Espera no está
-                            en inventar cada elemento por separado, sino
-                            en integrarlos dentro de un servicio urbano
-                            de acceso temporal.
-                        </p>
+                        <div class="ticket-feature">
+                            <span>✓</span>
+                            Validación del acceso en la entrada
+                        </div>
 
-                        <ul class="innovation-list">
 
-                            <li>
-                                Climatización + comodidad + conectividad
-                            </li>
+                        <div class="ticket-feature">
+                            <span>✓</span>
+                            Acceso asociado a la modalidad adquirida
+                        </div>
 
-                            <li>
-                                Acceso temporal mediante QR
-                            </li>
 
-                            <li>
-                                Membresías semanales y mensuales
-                            </li>
-
-                            <li>
-                                Posibilidad de utilizar diferentes módulos
-                            </li>
-
-                            <li>
-                                Diseño transparente orientado a la visibilidad
-                            </li>
-
-                            <li>
-                                Enfoque inicial en estudiantes
-                            </li>
-
-                        </ul>
+                        <div class="ticket-feature">
+                            <span>✓</span>
+                            Proceso rápido y sencillo
+                        </div>
 
                     </div>
 
+                </div>
 
-                    <div class="quote-box">
+
+                <div class="ticket-image">
+
+                    <img
+                        src="WhatsApp Image 2026-09-08 at 4.58.23 PM.jpeg"
+                        alt="Tiquete físico con código QR de Cabina VIP de Espera"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             UBICACIÓN
+        ============================== -->
+
+        <section
+            class="section"
+            id="ubicacion"
+        >
+
+            <div class="container location-grid">
+
+
+                <div class="location-images">
+
+                    <img
+                        src="WhatsApp Image 2026-09-08 at 9.02.18 PM.jpeg"
+                        alt="Vista aérea de UTEPSA y propuesta de ubicación de Cabina VIP de Espera"
+                    >
+
+                    <img
+                        src="WhatsApp Image 2026-09-08 at 4.58.24 PM.jpeg"
+                        alt="Simulación de Cabina VIP de Espera en UTEPSA"
+                    >
+
+                </div>
+
+
+                <div class="location-content">
+
+                    <span class="location-tag">
+                        PILOTO PROPUESTO
+                    </span>
+
+
+                    <h2>
+                        Cerca de donde
+                        realmente esperas.
+                    </h2>
+
+
+                    <p>
+                        La primera instalación se plantea en un punto
+                        estratégico próximo a instituciones educativas
+                        con alta circulación de estudiantes.
+                    </p>
+
+
+                    <p>
+                        Como propuesta académica, se plantea una
+                        simulación de ubicación en los alrededores
+                        de <strong>UTEPSA</strong>, en Santa Cruz
+                        de la Sierra.
+                    </p>
+
+
+                    <p>
+                        La vista aérea permite observar el contexto
+                        general del campus y la propuesta de ubicación,
+                        mientras que la segunda imagen muestra cómo
+                        podría verse la cabina a nivel de calle.
+                    </p>
+
+
+                    <div class="location-note">
 
                         <strong>
-                            “No cobramos por esperar;
-                            cobramos por mejorar
-                            la experiencia de espera.”
+                            Importante:
                         </strong>
 
+                        La ubicación definitiva dependerá de estudios
+                        de demanda, flujo de usuarios, condiciones del
+                        espacio y las autorizaciones correspondientes.
+
                     </div>
+
+
+                    <a
+                        href="#contacto"
+                        class="btn btn-primary"
+                    >
+                        Conocer el proyecto
+                    </a>
 
                 </div>
 
@@ -1377,142 +2469,140 @@
         </section>
 
 
-        <!-- =========================
-             UBICACIÓN
-        ========================== -->
 
-        <section class="location" id="ubicacion">
+        <!-- ==============================
+             INNOVACIÓN
+        ============================== -->
 
-            <div class="container">
+        <section
+            class="section section-green"
+            id="innovacion"
+        >
 
-                <div class="location-grid">
-
-                    <div class="location-image">
-
-                        <img
-                            src="WhatsApp Image 2026-09-08 at 4.58.23 PM (1).jpeg"
-                            alt="Propuesta de ubicación para Cabina VIP de Espera"
-                        >
-
-                    </div>
+            <div class="container innovation-grid">
 
 
-                    <div class="location-content">
+                <div class="innovation-image">
 
-                        <span class="location-tag">
-                            PILOTO PROPUESTO
-                        </span>
-
-                        <h2>
-                            Cerca de donde realmente esperas
-                        </h2>
-
-                        <p>
-                            La primera instalación se plantea en un punto
-                            estratégico próximo a instituciones educativas
-                            con alta circulación de estudiantes.
-                        </p>
-
-                        <p>
-                            Como propuesta académica, se plantea una
-                            simulación de ubicación en los alrededores
-                            de <strong>UTEPSA</strong>, en Santa Cruz
-                            de la Sierra.
-                        </p>
-
-                        <p>
-                            La ubicación definitiva dependerá de estudios
-                            de demanda, flujo de usuarios, condiciones
-                            del espacio y las autorizaciones correspondientes.
-                        </p>
-
-                        <a href="#contacto" class="btn btn-primary">
-                            Conocer el proyecto
-                        </a>
-
-                    </div>
+                    <img
+                        src="WhatsApp Image 2026-09-08 at 4.58.21 PM.jpeg"
+                        alt="Concepto de Cabina VIP de Espera"
+                    >
 
                 </div>
 
-            </div>
 
-        </section>
+                <div>
+
+                    <span class="eyebrow">
+                        ¿Dónde está la innovación?
+                    </span>
 
 
-        <!-- =========================
-             PÚBLICO OBJETIVO
-        ========================== -->
-
-        <section class="audience">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <div class="small-title">
-                        Nuestro público
-                    </div>
-
-                    <h2>
-                        ¿Para quién está pensado?
+                    <h2 class="section-title">
+                        Una experiencia diferente
+                        para un problema cotidiano.
                     </h2>
 
-                    <p>
-                        Comenzamos enfocándonos en usuarios que
-                        tienen una necesidad frecuente de esperar
-                        transporte.
+
+                    <p class="section-text">
+
+                        La innovación no está en inventar el aire acondicionado, calefacción,
+                        el Wi-Fi o los asientos. Está en integrar estos elementos
+                        dentro de un nuevo modelo de servicio de espera temporal.
+
                     </p>
 
-                </div>
+
+                    <div class="innovation-list">
 
 
-                <div class="audience-box">
+                        <div class="innovation-item">
 
-                    <div class="audience-card">
+                            <div class="innovation-icon">
+                                01
+                            </div>
 
-                        <div class="emoji">🎓</div>
+                            <div>
 
-                        <h3>
-                            Estudiantes universitarios
-                        </h3>
+                                <h3>
+                                    Servicio bajo demanda
+                                </h3>
 
-                        <p>
-                            Jóvenes que utilizan transporte público
-                            y buscan mayor comodidad durante sus tiempos
-                            de espera.
-                        </p>
+                                <p>
+                                    El usuario paga solamente por el tiempo
+                                    y modalidad que necesita.
+                                </p>
 
-                    </div>
+                            </div>
 
-
-                    <div class="audience-card">
-
-                        <div class="emoji">🏫</div>
-
-                        <h3>
-                            Estudiantes de colegio
-                        </h3>
-
-                        <p>
-                            Usuarios que esperan su transporte cerca
-                            de instituciones educativas seleccionadas.
-                        </p>
-
-                    </div>
+                        </div>
 
 
-                    <div class="audience-card">
+                        <div class="innovation-item">
 
-                        <div class="emoji">👨‍👩‍👧</div>
+                            <div class="innovation-icon">
+                                02
+                            </div>
 
-                        <h3>
-                            Padres y tutores
-                        </h3>
+                            <div>
 
-                        <p>
-                            En el caso de menores de edad, padres o
-                            tutores pueden asumir el pago del servicio.
-                        </p>
+                                <h3>
+                                    Tiquete físico con QR
+                                </h3>
+
+                                <p>
+                                    Un sistema sencillo de acceso que conecta
+                                    la compra del servicio con el ingreso a la cabina.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="innovation-item">
+
+                            <div class="innovation-icon">
+                                03
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Membresías
+                                </h3>
+
+                                <p>
+                                    Usuarios frecuentes pueden acceder mediante
+                                    modalidades semanales o mensuales.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="innovation-item">
+
+                            <div class="innovation-icon">
+                                04
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Red de cabinas
+                                </h3>
+
+                                <p>
+                                    El modelo puede crecer progresivamente hacia
+                                    diferentes puntos estratégicos de la ciudad.
+                                </p>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -1523,82 +2613,109 @@
         </section>
 
 
-        <!-- =========================
+
+        <!-- ==============================
              GALERÍA
-        ========================== -->
+        ============================== -->
 
-        <section class="gallery">
+        <section
+            class="section"
+            id="galeria"
+        >
 
             <div class="container">
 
-                <div class="section-title">
 
-                    <div class="small-title">
-                        Proyecto visual
-                    </div>
+                <div class="gallery-header">
 
-                    <h2>
-                        Así imaginamos Cabina VIP de Espera
+                    <span class="eyebrow">
+                        Así imaginamos la experiencia
+                    </span>
+
+                    <h2 class="section-title">
+                        Cabina VIP de Espera
                     </h2>
 
-                    <p>
-                        Conceptos, ubicación propuesta y elementos
-                        desarrollados para el proyecto.
+                    <p class="section-text">
+                        Una propuesta moderna, transparente y pensada
+                        para hacer más agradable el tiempo de espera.
                     </p>
 
                 </div>
 
 
-                <div class="gallery-grid">
+                <div class="gallery">
 
-                    <div class="gallery-item">
+
+                    <div class="gallery-item large">
+
                         <img
                             src="WhatsApp Image 2026-09-08 at 4.58.21 PM.jpeg"
-                            alt="Proyecto Cabina VIP de Espera"
+                            alt="Concepto general de Cabina VIP de Espera"
                         >
+
                     </div>
 
+
                     <div class="gallery-item">
+
                         <img
                             src="WhatsApp Image 2026-09-08 at 4.58.22 PM.jpeg"
-                            alt="Cabina VIP de Espera"
+                            alt="Vista de la cabina transparente"
                         >
+
                     </div>
 
+
                     <div class="gallery-item">
+
                         <img
                             src="WhatsApp Image 2026-09-08 at 4.58.23 PM.jpeg"
-                            alt="Diseño de Cabina VIP de Espera"
+                            alt="Tiquete de Cabina VIP de Espera"
                         >
+
                     </div>
 
+
                     <div class="gallery-item">
+
                         <img
                             src="WhatsApp Image 2026-09-08 at 4.58.23 PM (1).jpeg"
-                            alt="Ubicación propuesta"
+                            alt="Usuario realizando el acceso mediante QR"
                         >
+
                     </div>
 
+
                     <div class="gallery-item">
+
                         <img
                             src="WhatsApp Image 2026-09-08 at 4.58.23 PM (2).jpeg"
-                            alt="Experiencia de acceso"
+                            alt="Experiencia dentro de Cabina VIP de Espera"
                         >
+
                     </div>
 
+
                     <div class="gallery-item">
+
                         <img
                             src="WhatsApp Image 2026-09-08 at 4.58.23 PM (3).jpeg"
-                            alt="Pase de membresía"
+                            alt="Diseño de Cabina VIP de Espera"
                         >
+
                     </div>
 
-                    <div class="gallery-item">
+
+                    <div class="gallery-item large">
+
                         <img
-                            src="WhatsApp Image 2026-09-08 at 4.58.24 PM.jpeg"
-                            alt="Elementos del proyecto"
+                            src="WhatsApp Image 2026-09-08 at 9.02.18 PM.jpeg"
+                            alt="Vista aérea de la propuesta en UTEPSA"
                         >
+
                     </div>
+
 
                 </div>
 
@@ -1607,140 +2724,207 @@
         </section>
 
 
-        <!-- =========================
+
+        <!-- ==============================
              FAQ
-        ========================== -->
+        ============================== -->
 
-        <section class="faq">
+        <section
+            class="section section-light"
+            id="faq"
+        >
 
-            <div class="container">
+            <div class="container faq-container">
 
-                <div class="section-title">
 
-                    <div class="small-title">
+                <div class="faq-header">
+
+                    <span class="eyebrow">
                         Preguntas frecuentes
-                    </div>
+                    </span>
 
-                    <h2>
-                        Lo que necesitas saber
+                    <h2 class="section-title">
+                        Lo que necesitas saber.
                     </h2>
 
+                    <p class="section-text">
+                        Algunas respuestas sobre el funcionamiento
+                        de nuestra propuesta.
+                    </p>
+
                 </div>
 
 
-                <div class="faq-container">
+                <div class="faq-list">
 
-                    <details>
 
-                        <summary>
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+
                             ¿Por qué pagar por esperar?
-                        </summary>
 
-                        <p>
-                            Porque el servicio no cobra simplemente por
-                            permanecer en un lugar. El usuario paga por
-                            una experiencia de espera más cómoda, climatizada,
-                            conectada y equipada.
-                        </p>
+                            <span>+</span>
 
-                    </details>
+                        </button>
 
+                        <div class="faq-answer">
 
-                    <details>
+                            <p>
+                                Porque el servicio no vende simplemente
+                                un espacio para esperar. Ofrece una experiencia
+                                de comodidad, climatización, conectividad,
+                                asientos y facilidad durante ese tiempo.
+                            </p>
 
-                        <summary>
-                            ¿Por qué la capacidad es de hasta 20 personas?
-                        </summary>
+                        </div>
 
-                        <p>
-                            La capacidad máxima de 20 personas es una
-                            referencia inicial para mantener comodidad,
-                            circulación y una buena experiencia. La capacidad
-                            definitiva deberá establecerse mediante el
-                            diseño técnico y la validación del proyecto.
-                        </p>
-
-                    </details>
+                    </div>
 
 
-                    <details>
+                    <div class="faq-item">
 
-                        <summary>
-                            ¿Qué sucede si la cabina llega a su capacidad máxima?
-                        </summary>
+                        <button class="faq-question">
 
-                        <p>
-                            El sistema de acceso debe controlar el aforo
-                            disponible. Si la cabina alcanza su capacidad,
-                            nuevos usuarios deberán esperar hasta que exista
-                            disponibilidad.
-                        </p>
+                            ¿Quiénes son los principales usuarios?
 
-                    </details>
+                            <span>+</span>
 
+                        </button>
 
-                    <details>
+                        <div class="faq-answer">
 
-                        <summary>
-                            ¿La cabina ofrece seguridad?
-                        </summary>
+                            <p>
+                                El segmento principal está compuesto por
+                                estudiantes de colegio y universidad,
+                                especialmente en puntos con alta circulación
+                                y necesidad frecuente de esperar transporte.
+                            </p>
 
-                        <p>
-                            La propuesta contempla medidas operativas como
-                            control de acceso, monitoreo y cámaras de seguridad. Sin embargo,
-                            nuestra principal promesa no es la seguridad,
-                            sino la comodidad durante la espera.
-                        </p>
+                        </div>
 
-                    </details>
+                    </div>
 
 
-                    <details>
+                    <div class="faq-item">
 
-                        <summary>
-                            ¿Dónde estarán ubicadas las cabinas?
-                        </summary>
+                        <button class="faq-question">
 
-                        <p>
-                            Se plantea instalarlas estratégicamente cerca
-                            de colegios, universidades y otros puntos con
-                            alta circulación y necesidad de espera.
-                            Las ubicaciones requerirán las autorizaciones
-                            correspondientes.
-                        </p>
+                            ¿Cuántas personas puede recibir la cabina?
 
-                    </details>
+                            <span>+</span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p>
+                                La capacidad inicial planteada es de hasta
+                                20 personas. Esta cifra deberá validarse
+                                posteriormente mediante el diseño técnico,
+                                las dimensiones definitivas y las pruebas
+                                de funcionamiento.
+                            </p>
+
+                        </div>
+
+                    </div>
 
 
-                    <details>
+                    <div class="faq-item">
 
-                        <summary>
+                        <button class="faq-question">
+
+                            ¿Cómo se ingresa?
+
+                            <span>+</span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p>
+                                El usuario recibe un tiquete físico con
+                                código QR. Este código se escanea en el
+                                lector ubicado en la entrada de la cabina
+                                para validar el acceso.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+
+                            ¿La cabina será completamente transparente?
+
+                            <span>+</span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p>
+                                Sí. La propuesta contempla paneles transparentes
+                                que permitan mantener la visibilidad hacia el
+                                exterior. De esta manera, el usuario puede
+                                identificar cuándo se aproxima su transporte.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+
+                            ¿Dónde se instalaría?
+
+                            <span>+</span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p>
+                                La propuesta inicial contempla puntos próximos
+                                a instituciones educativas y lugares con alto
+                                flujo de usuarios. UTEPSA se utiliza actualmente
+                                como ubicación piloto para la simulación académica.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+
                             ¿Los precios son definitivos?
-                        </summary>
 
-                        <p>
-                            No. Los precios mostrados corresponden a una
-                            propuesta piloto y deberán validarse mediante
-                            investigación de mercado, estructura de costos
-                            y disposición real de pago de los usuarios.
-                        </p>
+                            <span>+</span>
 
-                    </details>
+                        </button>
 
+                        <div class="faq-answer">
 
-                    <details>
+                            <p>
+                                No. Los precios de Bs 15, Bs 80 y Bs 300 son
+                                una propuesta inicial que deberá validarse
+                                mediante investigación de mercado, costos
+                                operativos y disposición de pago de los usuarios.
+                            </p>
 
-                        <summary>
-                            ¿La membresía puede utilizarse en diferentes cabinas?
-                        </summary>
+                        </div>
 
-                        <p>
-                            La propuesta contempla una red de módulos donde
-                            una membresía personal pueda utilizarse en
-                            diferentes cabinas habilitadas.
-                        </p>
-
-                    </details>
+                    </div>
 
                 </div>
 
@@ -1749,62 +2933,234 @@
         </section>
 
 
-        <!-- =========================
+
+        <!-- ==============================
              CONTACTO / CTA
-        ========================== -->
+        ============================== -->
 
-        <section class="cta" id="contacto">
+        <section
+            class="cta"
+            id="contacto"
+        >
 
-            <div class="container">
+            <div class="container cta-content">
 
-                <h2>
-                    Transformamos la espera en comodidad.
-                </h2>
+                <div>
 
-                <p>
-                    Cabina VIP de Espera es una propuesta universitaria
-                    de innovación orientada a mejorar la experiencia
-                    cotidiana de quienes utilizan transporte.
-                </p>
+                    <span class="eyebrow">
+                        CABINA VIP DE ESPERA
+                    </span>
 
-                <a href="#inicio" class="btn btn-primary">
-                    Volver al inicio
+                    <h2>
+                        Tu espera puede
+                        ser diferente.
+                    </h2>
+
+                    <p>
+                        Una propuesta de emprendimiento que convierte
+                        un momento cotidiano en una experiencia de comodidad.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="#inicio"
+                    class="btn btn-light"
+                >
+                    Volver al inicio ↑
                 </a>
 
             </div>
 
         </section>
 
+
     </main>
 
 
-    <!-- =========================
+
+    <!-- ==============================
          FOOTER
-    ========================== -->
+    ============================== -->
 
     <footer>
 
-        <div class="footer-container">
+        <div class="container footer-content">
 
-            <div>
 
-                <div class="footer-brand">
-                    CABINA VIP DE ESPERA
+            <div class="footer-brand">
+
+                <div class="footer-brand-icon">
+                    🍃
                 </div>
 
-                <div class="footer-small">
-                    Transformamos la espera en comodidad.
+                <div>
+
+                    <strong>
+                        CABINA VIP DE ESPERA
+                    </strong>
+
+                    <p>
+                        Transformamos la espera en comodidad.
+                    </p>
+
                 </div>
 
             </div>
 
-            <div class="footer-small">
-                Proyecto universitario · Santa Cruz de la Sierra, Bolivia
+
+            <div class="footer-copy">
+
+                Proyecto académico de emprendimiento<br>
+                Santa Cruz de la Sierra · Bolivia
+
             </div>
 
         </div>
 
     </footer>
+
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <script>
+
+        /* MENÚ MÓVIL */
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuButton.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* CERRAR MENÚ */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("active");
+
+                });
+
+            });
+
+
+
+        /* FAQ */
+
+        const faqQuestions =
+            document.querySelectorAll(".faq-question");
+
+
+        faqQuestions.forEach(question => {
+
+            question.addEventListener("click", () => {
+
+                const item =
+                    question.parentElement;
+
+                const answer =
+                    item.querySelector(".faq-answer");
+
+
+                document
+                    .querySelectorAll(".faq-item")
+                    .forEach(otherItem => {
+
+                        if (otherItem !== item) {
+
+                            otherItem.classList.remove("active");
+
+                            otherItem
+                                .querySelector(".faq-answer")
+                                .style.maxHeight = null;
+
+                        }
+
+                    });
+
+
+                item.classList.toggle("active");
+
+
+                if (item.classList.contains("active")) {
+
+                    answer.style.maxHeight =
+                        answer.scrollHeight + "px";
+
+                } else {
+
+                    answer.style.maxHeight = null;
+
+                }
+
+            });
+
+        });
+
+
+
+        /* ANIMACIONES */
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.style.opacity = "1";
+
+                            entry.target.style.transform =
+                                "translateY(0)";
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        document
+            .querySelectorAll(
+                ".feature, .step, .plan, .value-item, .innovation-item"
+            )
+            .forEach(element => {
+
+                element.style.opacity = "0";
+
+                element.style.transform =
+                    "translateY(20px)";
+
+                element.style.transition =
+                    "opacity 0.6s ease, transform 0.6s ease";
+
+                observer.observe(element);
+
+            });
+
+    </script>
+
 
 </body>
 </html>
